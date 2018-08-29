@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+
+{% block body_block %}
+    {% if is_registered %}
+        <h6 style="text-align: center">REGISTRATION SUCCESSFULL</h6>
+    {% else %}
+        <h3 style="text-align: center; margin-bottom: 30px;">SIGN UP</h3>
+        <form action="" method="POST">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <button type="submit" class="u-full-width button-primary">Sign up</button>
+        </form>
+    {% endif %}
+{% endblock body_block %}

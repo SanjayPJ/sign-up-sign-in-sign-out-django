@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% block body_block %}
+    <h3 style="text-align: center; margin-bottom: 30px;">SIGN IN</h3>
+    <form action="" method="POST">
+        <label for="username">Username</label>
+        <input name="username" type="text" class="">
+        <label for="password">Password</label>
+        <input type="password" name="password">
+        {% csrf_token %}
+        {% if e_message %}
+            <p style="text-align: center">{{ e_message }}</p>
+        {% endif %}
+        <input type="submit" class="button-primary" value="Sign in">
+    </form>
+{% endblock body_block %}
+    

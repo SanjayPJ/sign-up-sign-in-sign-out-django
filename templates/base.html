@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PROJECT00</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    <style>
+        ul {
+            text-align: center;
+            list-style: none;
+        }
+        li {
+            padding: 12px;
+            display: inline;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'admin:index' %}">Admin</a></li>
+            <li><a href="{% url 'register' %}">Sign up</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'sign_out' %}">Sign out</a></li>
+            {% else %}
+            <li><a href="{% url 'sign_in' %}">Sign in</a></li>
+            {% endif %}
+
+        </ul>
+        {% block body_block %}
+
+        {% endblock body_block %}
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $("input").addClass("u-full-width");
+    </script>
+</body>
+
+</html>
